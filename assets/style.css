@@ -1,0 +1,386 @@
+/*  */
+/* HEADER */
+/*  */
+/* Header principal */
+body h1 {
+  background: linear-gradient(
+    135deg,
+    #ffe0b2,
+    #fff9c4
+  ); /* couleur pastel rappelant les post-its */
+  color: #333; /* texte sombre pour le contraste */
+  text-align: center;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 700px;
+  font-family: "Arial", sans-serif;
+  font-size: 2rem;
+  position: relative;
+}
+
+/* Petite épingle décorative en haut du header */
+body h1::before {
+  content: "📌";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+}
+
+body h2 {
+  background: linear-gradient(
+    135deg,
+    #ffe0b2,
+    #fff9c4
+  ); /* couleur pastel rappelant les post-its */
+  color: #333; /* texte sombre pour le contraste */
+  text-align: center;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 700px;
+  font-family: "Arial", sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+/* Petite épingle décorative en haut du header */
+body h2::before {
+  content: "📌";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+}
+
+/* Ligne horizontale décorative sous le header */
+body hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ffe0b2, #c8e6c9);
+  margin: 1rem auto 2rem auto;
+  max-width: 700px;
+  border-radius: 2px;
+}
+
+/*  */
+/* FORMULAIRE */
+/*  */
+/* Conteneur du formulaire */
+.note-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fffdf5; /* couleur papier */
+  border: 2px solid #f1e3c4; /* bordure douce couleur parchemin */
+  border-radius: 8px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Titre des champs */
+.note-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  color: #5a4632;
+}
+
+/* Champ texte et zone de saisie */
+.note-form input[type="text"],
+.note-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #d4c8a8;
+  border-radius: 4px;
+  background: #fffef9;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Effet focus (champ sélectionné) */
+.note-form input[type="text"]:focus,
+.note-form textarea:focus {
+  border-color: #c49b5d;
+  box-shadow: 0 0 5px rgba(196, 155, 93, 0.4);
+  outline: none;
+}
+
+/* Bouton */
+.note-form button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background: #c49b5d; /* couleur papier ancien */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Effet hover bouton */
+.note-form button:hover {
+  background: #a67c46;
+}
+
+.note-form button:active {
+  transform: scale(0.98);
+}
+
+/*  */
+/* SYSTEME RECHERCHE */
+/*  */
+/* Conteneur du formulaire de recherche */
+.search-form {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Input de recherche */
+.search-form input[type="text"] {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+/* Focus sur l'input */
+.search-form input[type="text"]:focus {
+  outline: none;
+  border-color: #ffd27f;
+  box-shadow: 0 0 8px rgba(255, 210, 127, 0.5);
+}
+
+/* Bouton de recherche */
+.search-form button {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #ffe0b2;
+  cursor: pointer;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Hover sur le bouton */
+.search-form button:hover {
+  background: #ffd27f;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Conteneur des boutons radio */
+.search-options {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+/* Label des radio */
+.search-options label {
+  margin-right: 1rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+/* Style du label quand sélectionné */
+.search-options input[type="radio"]:checked + label {
+  background: #ffd27f;
+  color: #333;
+}
+
+/* Input radio */
+.search-options input[type="radio"] {
+  margin-right: 0.3rem;
+  accent-color: #ffd27f; /* couleur pastel pour le radio */
+}
+
+/* Hover sur label */
+.search-options label:hover {
+  background: #ffe0b2;
+}
+/*  */
+/* LISTE DES NOTES */
+/*  */
+/* Conteneur de notes */
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  list-style: none;
+  margin: 0 auto; /* centre le conteneur horizontalement */
+  max-width: 980px; /* largeur max pour le centrer proprement */
+  justify-content: center; /* centre les colonnes si elles ne remplissent pas tout l'espace */
+}
+
+/* Post-it uniquement pour les notes */
+.note-item {
+  background: #fffdf5; /* Jaune pastel */
+  border: 1px solid #f1e0a6;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Couleurs alternatives pour variation */
+.note-item:nth-child(odd) {
+  background: #faf5de;
+} /* orange pastel doux */
+.note-item:nth-child(even) {
+  background: #c8e6c9;
+} /* vert pastel doux */
+
+/* Survol */
+.note-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Titre */
+.note-item strong {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Contenu de la note */
+.note-item p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.2;
+  margin-top: 0.4rem; /* supprime l'espace au-dessus */
+  margin-bottom: 0.4rem; /* espace sous le contenu */
+  white-space: pre-wrap;
+}
+
+/* Date */
+.note-item small {
+  font-size: 0.75rem;
+  color: #666;
+  padding-top: 0.2rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Bouton supprimer sous la date */
+.note-item a {
+  font-size: 0.75rem;
+  color: #c33;
+  text-decoration: none;
+  margin-top: 0.2rem;
+  align-self: flex-start;
+}
+
+.note-item a:hover {
+  text-decoration: underline;
+}
+
+/* Coin corné en bas à droite */
+.note-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom-right-radius: 6px;
+}
+
+/* Épingle en haut */
+.note-item::before {
+  content: "📌";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}
+
+/* Les li internes au Markdown restent des puces normales */
+.note-item p li {
+  list-style: disc inside;
+  margin-left: 1rem;
+  padding-left: 0;
+}
+/*  */
+/* FOOTER */
+/*  */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  background: #fffdf5; /* couleur pastel rappelant les notes */
+  border-top: 2px solid #f1e0a6;
+  border-radius: 10px 10px 0 0; /* coins arrondis en haut */
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Ligne horizontale décorative */
+footer hr {
+  border: none;
+  height: 2px;
+  width: 60%;
+  background: linear-gradient(to right, #ffd27f, #ffe0b2);
+  margin: 0.5rem auto 1rem auto;
+  border-radius: 2px;
+}
+
+/* Texte du footer */
+footer p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Emoji cœur avec effet léger */
+footer p small {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+}
+
+/* Animation cœur */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+}
+
+/* Version responsive */
+@media screen and (max-width: 500px) {
+  .search-form input[type="text"] {
+    width: 90%;
+  }
+}
