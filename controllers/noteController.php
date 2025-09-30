@@ -10,6 +10,11 @@ function indexNotes()
     $search = $_GET['search'] ?? '';
     $filter = $_GET['filter'] ?? 'both';
 
+    // Pagination
+    $perPage = 16;
+    $page = max(1, intval($_GET['page'] ?? 1)); // page par défaut = 1
+    $offset = ($page - 1) * $perPage;
+
     if ($search) {
         if ($filter === 'title') {
             $notes = searchNotesByTitle($pdo, $search);
@@ -18,16 +23,20 @@ function indexNotes()
         } else {
             $notes = searchNotes($pdo, $search);
         }
+        // ⚠️ pour simplifier, pas de pagination sur recherche (on peut l’ajouter après si tu veux)
+        $totalNotes = count($notes);
     } else {
-        $notes = getNotes($pdo);
+        $notes = getNotesPagination($pdo, $perPage, $offset);
+        $totalNotes = countNotes($pdo);
     }
+
+    $totalPages = ceil($totalNotes / $perPage);
 
     include __DIR__ . '/../views/header.php';
     include __DIR__ . '/../views/notes.php';
     include __DIR__ . '/../views/form.php';
     include __DIR__ . '/../views/footer.php';
 }
-
 
 // Sauvegarde une note
 function storeNote()

@@ -26,7 +26,6 @@
 </form>
 
 
-
 <!-- Liste des notes -->
 
 <ul class="notes-list">
@@ -42,6 +41,26 @@
     </li>
     <?php endforeach; ?>
 </ul>
+
+<!-- Pagination -->
+<?php if ($totalPages > 1): ?>
+<nav class="pagination-buttons">
+    <?php if ($page > 1): ?>
+    <a href="index.php?route=notes.index&page=<?= $page - 1 ?>">⬅</a>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+    <a href="index.php?route=notes.index&page=<?= $i ?>" class="<?= ($i == $page) ? 'active' : '' ?>">
+        <?= $i ?>
+    </a>
+    <?php endfor; ?>
+
+    <?php if ($page < $totalPages): ?>
+    <a href="index.php?route=notes.index&page=<?= $page + 1 ?>">➡</a>
+    <?php endif; ?>
+</nav>
+<?php endif; ?>
+
 
 <!-- SCRIPT UNIQUE pour toutes les notes -->
 <script>

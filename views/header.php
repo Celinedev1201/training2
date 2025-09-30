@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestionnaire de notes</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css?v=<?= time() ?>">
     <!-- WYSIWY -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>

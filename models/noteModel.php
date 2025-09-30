@@ -57,3 +57,17 @@ function searchNotesByContent($pdo, $term)
     $stmt->execute(['search' => $searchTerm]);
     return $stmt->fetchAll();
 }
+
+function getNotesPagination($pdo, $limit, $offset)
+{
+    $stmt = $pdo->prepare("SELECT * FROM notes ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function countNotes($pdo)
+{
+    return $pdo->query("SELECT COUNT(*) FROM notes")->fetchColumn();
+}
