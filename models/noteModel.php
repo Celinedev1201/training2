@@ -12,7 +12,7 @@ function addNote($pdo, $title, $content)
     // $stmt->execute([htmlspecialchars($title), htmlspecialchars($content)]);
 }
 
-function deleteNote($pdo, $id)
+function deleteNoteFromDb($pdo, $id)
 {
     $stmt = $pdo->prepare("DELETE FROM notes WHERE id = ?");
     $stmt->execute([$id]);

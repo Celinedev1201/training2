@@ -2,34 +2,57 @@
 require_once __DIR__ . '/../models/db.php';
 require_once __DIR__ . '/../models/noteModel.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST['title']) && !empty($_POST['content'])) {
-        addNote($pdo, $_POST['title'], $_POST['content']);
-    }
-    header("Location: index.php");
-    exit;
-}
 
-if (isset($_GET['delete'])) {
-    deleteNote($pdo, $_GET['delete']);
-    header("Location: index.php");
-    exit;
-}
+// Affiche toutes les notes
+function indexNotes()
+{
+    global $pdo;
+    $search = $_GET['search'] ?? '';
+    $filter = $_GET['filter'] ?? 'both';
 
-$notes = getNotes($pdo);
-
-// systeme de recherche
-$search = $_GET['search'] ?? '';
-$filter = $_GET['filter'] ?? 'both';
-
-if ($search) {
-    if ($filter === 'title') {
-        $notes = searchNotesByTitle($pdo, $search);
-    } elseif ($filter === 'content') {
-        $notes = searchNotesByContent($pdo, $search);
+    if ($search) {
+        if ($filter === 'title') {
+            $notes = searchNotesByTitle($pdo, $search);
+        } elseif ($filter === 'content') {
+            $notes = searchNotesByContent($pdo, $search);
+        } else {
+            $notes = searchNotes($pdo, $search);
+        }
     } else {
-        $notes = searchNotes($pdo, $search);
+        $notes = getNotes($pdo);
     }
-} else {
-    $notes = getNotes($pdo);
+
+    include __DIR__ . '/../views/header.php';
+    include __DIR__ . '/../views/notes.php';
+    include __DIR__ . '/../views/form.php';
+    include __DIR__ . '/../views/footer.php';
+}
+
+
+// Sauvegarde une note
+function storeNote()
+{
+    global $pdo;
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+            addNote($pdo, $_POST['title'], $_POST['content']);
+        }
+    }
+
+    header("Location: index.php?route=notes.index");
+    exit;
+}
+
+// Supprime une note
+function deleteNote()
+{
+    global $pdo;
+
+    if (isset($_GET['id'])) {
+        deleteNoteFromDb($pdo, $_GET['id']);
+    }
+
+    header("Location: index.php?route=notes.index");
+    exit;
 }
