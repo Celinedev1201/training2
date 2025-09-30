@@ -38,13 +38,13 @@ Une application idéale pour organiser ses idées au quotidien, façon tableau d
 
 ## Captures d’écran de l’application
 
-![gestionnaire de note](./images/gestionnaire_notes.png)
+![gestionnaire de note](./images/gestionnaire_notes_v2.png)
 
-![ajouter une note](./images/ajouter_note.png)
+![ajouter une note](./images/ajouter_note_v2.png)
 
 ## Arborescence du projet
 
-![arborscence du projet](./images/arborescence.png)
+![arborscence du projet](./images/arborescence_v2.png)
 
 ## Auteur
 

@@ -11,7 +11,7 @@ function indexNotes()
     $filter = $_GET['filter'] ?? 'both';
 
     // Pagination
-    $perPage = 16;
+    $perPage = 8;
     $page = max(1, intval($_GET['page'] ?? 1)); // page par défaut = 1
     $offset = ($page - 1) * $perPage;
 
